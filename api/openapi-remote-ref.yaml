@@ -14,7 +14,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: >-
-                  https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore.yaml#/components/schemas/Pet
+                $ref: 
+                  'https://raw.githubusercontent.com/swagger-api/swagger-petstore/master/src/main/resources/openapi.yaml#/components/schemas/Pet'
 servers:
   - url: https://httpbin.org
