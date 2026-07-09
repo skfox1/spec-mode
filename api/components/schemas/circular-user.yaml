@@ -1,0 +1,14 @@
+type: object
+required:
+  - id
+  - name
+properties:
+  id:
+    type: string
+    example: usr_circular_123
+  name:
+    type: string
+    example: Ada Lovelace
+  team:
+    $ref: './team.yaml'
+
