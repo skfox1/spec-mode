@@ -1,0 +1,8 @@
+{
+  "formats": {
+    "openapi": {
+      "rootDir": "api",
+      "include": ["*.yaml"]
+    }
+  }
+}
