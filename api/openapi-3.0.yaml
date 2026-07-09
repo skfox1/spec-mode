@@ -1,0 +1,102 @@
+openapi: 3.0.3
+info:
+  title: Migration Fixture API
+  version: 1.0.0
+  contact:
+    name: Migration QA
+servers:
+  - url: https://api.example.com
+    description: Production
+  - url: https://staging-api.example.com
+    description: Staging
+x-handbook-fixture: preserve-me
+paths:
+  /users:
+    get:
+      tags:
+        - Users
+      operationId: listUsers
+      x-owner: platform-docs
+      x-apidog-check: preserve-list-users
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+      responses:
+        '200':
+          description: Users returned.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - data
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: './components/schemas/user.yaml'
+    post:
+      tags:
+        - Users
+      operationId: createUser
+      x-owner: platform-docs
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: './components/schemas/create-user-request.yaml'
+            examples:
+              minimal:
+                value:
+                  email: ada@example.com
+                  name: Ada Lovelace
+      responses:
+        '201':
+          description: User created.
+          content:
+            application/json:
+              schema:
+                $ref: './components/schemas/user.yaml'
+        '400':
+          description: Validation error.
+          content:
+            application/json:
+              schema:
+                $ref: '../models/error.json'
+  /users/{userId}:
+    get:
+      tags:
+        - Users
+      operationId: getUser
+      x-owner: platform-docs
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User returned.
+          content:
+            application/json:
+              schema:
+                $ref: './components/schemas/user.yaml'
+        '404':
+          description: User not found.
+          content:
+            application/json:
+              schema:
+                $ref: '../models/error.json'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

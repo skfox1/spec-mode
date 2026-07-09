@@ -1,0 +1,8 @@
+type: object
+properties:
+  avatarUrl:
+    type: string
+    format: uri
+  locale:
+    type: string
+    example: en-US

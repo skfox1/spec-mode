@@ -1,0 +1,25 @@
+type: object
+required:
+  - id
+  - email
+  - name
+properties:
+  id:
+    type: string
+    example: usr_123
+  email:
+    type: string
+    format: email
+    example: ada@example.com
+  name:
+    type: string
+    example: Ada Lovelace
+  role:
+    type: string
+    enum:
+      - admin
+      - member
+      - viewer
+  profile:
+    $ref: './profile.yaml'
+x-model-owner: platform-docs

@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "type": "group",
+      "title": "Guides",
+      "items": [
+        { "type": "item", "title": "Getting Started", "uri": "docs/getting-started.md" },
+        { "type": "item", "title": "Authentication", "uri": "docs/guides/authentication.md" },
+        { "type": "item", "title": "SMD Compatibility", "uri": "docs/smd/stoplight-flavored-markdown.md" }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "API Reference",
+      "uri": "api/openapi-3.0.yaml",
+      "items": [
+        { "type": "item", "title": "List Users", "uri": "api/openapi-3.0.yaml#/paths/~1users/get" },
+        { "type": "item", "title": "Create User", "uri": "api/openapi-3.0.yaml#/paths/~1users/post" }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Version Coverage",
+      "items": [
+        { "type": "item", "title": "Swagger 2.0", "uri": "api/swagger-2.0.yaml" },
+        { "type": "item", "title": "OpenAPI 3.1", "uri": "api/openapi-3.1.yaml" }
+      ]
+    },
+    {
+      "type": "group",
+      "title": "Models",
+      "items": [
+        { "type": "item", "title": "User", "uri": "models/user.json" },
+        { "type": "item", "title": "Error", "uri": "models/error.json" }
+      ]
+    },
+    { "type": "divider", "title": "External" },
+    { "type": "item", "title": "Status Page", "uri": "https://status.example.com" }
+  ]
+}

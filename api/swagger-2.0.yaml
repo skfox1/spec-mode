@@ -1,0 +1,34 @@
+swagger: '2.0'
+info:
+  title: Migration Fixture Swagger API
+  version: 1.0.0
+host: api.example.com
+basePath: /v1
+schemes:
+  - https
+paths:
+  /legacy-users:
+    get:
+      tags:
+        - Legacy Users
+      operationId: listLegacyUsers
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Legacy users returned.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LegacyUser'
+definitions:
+  LegacyUser:
+    type: object
+    required:
+      - id
+    properties:
+      id:
+        type: string
+      email:
+        type: string
+        format: email

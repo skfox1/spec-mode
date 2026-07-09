@@ -1,0 +1,35 @@
+openapi: 3.1.0
+info:
+  title: Migration Fixture OpenAPI 3.1 API
+  version: 1.0.0
+jsonSchemaDialect: https://json-schema.org/draft/2020-12/schema
+paths:
+  /events:
+    post:
+      tags:
+        - Events
+      operationId: createEvent
+      x-owner: platform-events
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - eventType
+              properties:
+                eventType:
+                  type: string
+                payload:
+                  oneOf:
+                    - type: object
+                      required:
+                        - message
+                      properties:
+                        message:
+                          type: string
+                    - type: 'null'
+      responses:
+        '202':
+          description: Accepted.

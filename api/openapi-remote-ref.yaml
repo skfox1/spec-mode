@@ -1,0 +1,17 @@
+openapi: 3.0.3
+info:
+  title: Migration Fixture Remote Ref API
+  version: 1.0.0
+paths:
+  /remote-ref:
+    get:
+      tags:
+        - Remote Ref
+      operationId: getRemoteRef
+      responses:
+        '200':
+          description: Remote schema response.
+          content:
+            application/json:
+              schema:
+                $ref: 'https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore.yaml#/components/schemas/Pet'
